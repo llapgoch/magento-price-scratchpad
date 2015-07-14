@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Llapgoch_PriceTest>
+			<version>0.1.0</version>
+		</Llapgoch_PriceTest>
+	</modules>
+	
+	<global>
+		<models>
+			<llapgoch_pricetest>
+				<class>Llapgoch_PriceTest_Model</class>
+			</llapgoch_pricetest>
+		</models>
+	</global>
+	
+	<frontend>
+		<events>
+			<controller_action_predispatch>
+				<observers>
+					<llapgoch_pricetest_output>
+						<model>llapgoch_pricetest/observer</model>
+						<method>getPrices</method>
+						<type>model</type>
+					</llapgoch_pricetest_output>
+				</observers>
+			</controller_action_predispatch>
+			
+			<catalog_product_get_final_price>
+				<observers>
+					<llapgoch_modify_price>
+						<model>llapgoch_pricetest/observer</model>
+						<method>modifyPrices</method>
+						<type>model</type>
+					</llapgoch_modify_price>
+				</observers>
+			</catalog_product_get_final_price>
+		</events>
+	</frontend>
+</config>
