@@ -15,12 +15,28 @@ class Llapgoch_PriceTest_Model_Observer{
 		 // This formats the curency and converts it to that of the current store
 		  //var_dump(Mage::helper('core')->currency(Mage::helper('tax')->getPrice($product, $product->getFinalPrice())));
 		 // Remember to set this correctly as for United States incorrectly adds tax on a price with tax already
-		var_dump($countryCode = Mage::getStoreConfig('general/country/default'));
+		// var_dump($countryCode = Mage::getStoreConfig('general/country/default'));
 	}
 	
 	// Demo of modifying prices
 	public function modifyPrices($observer){
 		$product = $observer->getProduct();
-		$product->setFinalPrice(10000);
+		// $product->setFinalPrice(10000);
+	}
+	
+	public function modifyItem($observer){
+		$item = $observer->getQuoteItem();
+		
+		$item = $item->getParentItem() ? $item->getParentItem() : $item; 
+		
+		$item->setCustomPrice(2000);
+		$item->setOriginalCustomPrice(2000);
+		$item->getProduct()->setIsSuperMode(true);
+		
+	}
+	
+	public function modifySaleable($observer){
+		$saleable = $observer->getSalable();
+		$saleable->setIsSalable(false);
 	}
 }

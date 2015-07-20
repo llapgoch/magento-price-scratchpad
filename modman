@@ -1,2 +1,5 @@
 app/etc/modules/* app/etc/modules/
 app/code/community/Llapgoch/* app/code/community/Llapgoch/
+
+app/design/frontend/base/default/layout/llapgoch/* app/design/frontend/base/default/layout/llapgoch/
+app/design/frontend/base/default/template/llapgoch/* app/design/frontend/base/default/template/llapgoch/

@@ -15,8 +15,16 @@
 	</global>
 	
 	<frontend>
+		<layout>
+			<updates>
+				<llapgoch_pricetest>
+					<file>llapgoch/price_test.xml</file>
+				</llapgoch_pricetest>
+			</updates>
+		</layout>
 		<events>
-			<controller_action_predispatch>
+			<!-- Enable these for things to happen! -->
+			<!-- <controller_action_predispatch>
 				<observers>
 					<llapgoch_pricetest_output>
 						<model>llapgoch_pricetest/observer</model>
@@ -25,7 +33,7 @@
 					</llapgoch_pricetest_output>
 				</observers>
 			</controller_action_predispatch>
-			
+
 			<catalog_product_get_final_price>
 				<observers>
 					<llapgoch_modify_price>
@@ -35,6 +43,26 @@
 					</llapgoch_modify_price>
 				</observers>
 			</catalog_product_get_final_price>
+
+			<checkout_cart_product_add_after>
+				<observers>
+					<llapgoch_modify_add_to_cart_price>
+						<model>llapgoch_pricetest/observer</model>
+						<method>modifyItem</method>
+						<type>model</type>
+					</llapgoch_modify_add_to_cart_price>
+				</observers>
+			</checkout_cart_product_add_after> -->
+			
+			<!-- <catalog_product_is_salable_after>
+				<observers>
+					<llapgoch_modify_saleable>
+						<model>llapgoch_pricetest/observer</model>
+						<method>modifySaleable</method>
+						<type>model</type>
+					</llapgoch_modify_saleable>
+				</observers>
+			</catalog_product_is_salable_after> -->
 		</events>
 	</frontend>
 </config>
